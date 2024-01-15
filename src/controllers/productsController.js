@@ -74,13 +74,14 @@ const controller = {
 			product.price = +price
 			product.discount = +discount,
 			product.description = description.trim()
+			
 		}
 
 		return product
 	})
 
 
-	fs.writeFileSync(productsFilePath,JSON.stringify(productsUpdate), 'utf-8')
+	fs.writeFileSync(productsFilePath,JSON.stringify(productUpdate), 'utf-8')
 
     return res.redirect("/products/detail/"+ req.params.id)
   },
