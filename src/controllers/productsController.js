@@ -75,6 +75,7 @@ const controller = {
 			product.discount = +discount,
 			product.description = description.trim()
 			
+			
 		}
 
 		return product
@@ -89,6 +90,13 @@ const controller = {
   // Delete - Delete one product from DB
   destroy: (req, res) => {
     // Do the magic
+	/* const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8")); */
+	/* console.log(products.length); */
+	const noProduct = products.filter((product) => product.id !== +req.params.id);
+	/* console.log(noProduct.length); */
+	fs.writeFileSync(productsFilePath,JSON.stringify(noProduct), 'utf-8')
+
+	return res.redirect('/')
   },
 };
 

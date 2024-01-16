@@ -19,7 +19,7 @@ const controller = {
 		// Do the magic
 		const {keywords} = req.query;
 		return res.render('results', {
-			products : products.filter(product => product.name.toLowerCase().includes(keywords.toLowerCase)),
+			products : products.filter(product => product.name.toLowerCase().includes(keywords.toLowerCase())),
 			keywords,
 			toThousand
 		})
